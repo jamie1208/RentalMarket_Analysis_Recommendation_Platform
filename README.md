@@ -5,7 +5,7 @@ RentPersona 是一個以 **租屋族群分群（Clustering）** 為核心的租�
 
 ---
 
-## 📌 專案動機（Project Motivation）
+##專案動機（Project Motivation）
 
 現有租屋平台大多以「租金、坪數、地區」作為篩選條件，但對於使用者而言，往往仍難以判斷哪一類房源真正適合自己。
 
@@ -15,7 +15,7 @@ RentPersona 是一個以 **租屋族群分群（Clustering）** 為核心的租�
 
 ---
 
-## 🧠 專案特色（Features）
+## 專案特色（Features）
 
 - 以 **租屋族群（Persona）** 為導向的找房流程
 - 使用 **K-means** 進行租屋市場分群分析
@@ -25,7 +25,7 @@ RentPersona 是一個以 **租屋族群分群（Clustering）** 為核心的租�
 
 ---
 
-## 👥 租屋族群分類（Personas）
+## 租屋族群分類（Personas）
 
 平台目前將租屋市場分為以下幾類：
 
@@ -46,7 +46,7 @@ RentPersona 是一個以 **租屋族群分群（Clustering）** 為核心的租�
 
 ---
 
-## 🔧 使用技術（Tech Stack）
+## 使用技術（Tech Stack）
 
 ### 前端
 
@@ -72,7 +72,7 @@ RentPersona 是一個以 **租屋族群分群（Clustering）** 為核心的租�
 
 ---
 
-## 📊 分群方法說明（Clustering Method）
+## 分群方法說明（Clustering Method）
 
 - 初期嘗試使用「**每坪租金**」作為主要分群特徵
 
@@ -86,4 +86,34 @@ RentPersona 是一個以 **租屋族群分群（Clustering）** 為核心的租�
 
 ---
 
-## 🖥️ 系統架構（System Overview）
+## 系統架構（System Overview）
+
+使用者
+↓
+前端介面（HTML / CSS / JS）
+↓
+Flask API
+↓
+SQLite 資料庫
+↓
+資料分析（K-means 分群）
+
+---
+
+## How to Run
+
+### 1.安裝套件
+
+```bash
+pip install flask pandas scikit-learn
+```
+
+### 2.啟動後端
+
+```bash
+python app.py
+```
+
+### 3.開啟前端
+
+使用瀏覽器開啟 index.html
