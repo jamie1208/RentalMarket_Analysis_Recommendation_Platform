@@ -1,0 +1,222 @@
+/* ===============================
+   Fonts: Poppins + Noto Sans TC
+   =============================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", "Noto Sans TC", system-ui, -apple-system,
+    BlinkMacSystemFont, sans-serif;
+
+  background: #f6f7f4;
+  color: #2f3a2f;
+}
+
+/* ===== Layout ===== */
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 260px;
+  background: #7a8b78;
+  color: #f9fafb;
+  padding: 40px 24px;
+}
+
+/* Logo */
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+/* 主選單 */
+.nav-item {
+  display: block;
+  padding: 14px 18px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f9fafb;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.nav-item.active {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+/* 分組 */
+.nav-group {
+  margin-top: 32px;
+}
+
+.nav-group-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+
+/* 子選單 */
+.nav-sub {
+  display: block;
+  padding: 10px 18px;
+  margin-left: 8px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nav-sub:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.nav-sub.active {
+  background: rgba(255, 255, 255, 0.22);
+  font-weight: 600;
+}
+
+/* ===== Main ===== */
+.main {
+  flex: 1;
+  padding: 72px 48px;
+  background: linear-gradient(180deg, #f6f7f4 0%, #eef2ec 100%);
+  overflow-y: auto;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ===== Title ===== */
+.title-block {
+  margin-bottom: 56px;
+}
+
+.title-block h1 {
+  font-family: "Poppins", "Noto Sans TC", sans-serif;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.subtitle {
+  margin-top: 14px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 15px;
+  color: #6b756b;
+}
+
+/* ===== Cards ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+/* ===== Card ===== */
+.card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  padding: 28px 30px;
+  border-radius: 22px;
+
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(47, 58, 47, 0.08);
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 2px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(47, 58, 47, 0.16);
+  border-color: #8fa58f;
+}
+
+/* ===== Card Text ===== */
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #6b756b;
+}
+
+/* ===== Icon ===== */
+.icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24px;
+  color: #ffffff;
+
+  background: linear-gradient(135deg, #7a8f7a, #8fa58f);
+
+  box-shadow: 0 8px 20px rgba(122, 143, 122, 0.35);
+}
+
+/* ===== Selected State ===== */
+.card.selected {
+  background: #eef2ec;
+  border-color: #6f846f;
+}
+.chart-container {
+  width: 100%;
+  height: 700px; /* ⭐ 一定要有高度 */
+  max-width: 700px;
+  margin: 0 auto;
+}
+.chart-section {
+  margin-bottom: 64px;
+  height: 350px;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.chart-box {
+  width: 100%;
+  max-width: 900px;
+  height: 360px; /* ⭐⭐ 關鍵高度 */
+  margin: 0 auto;
+
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 24px;
+
+  box-shadow: 0 14px 36px rgba(47, 58, 47, 0.08);
+}

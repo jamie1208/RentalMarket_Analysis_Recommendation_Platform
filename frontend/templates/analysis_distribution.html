@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <title>租屋推薦 Dashboard</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ✅ Chart.js（一定要） -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- ===== Sidebar ===== -->
+      <aside class="sidebar">
+        <h2 class="logo">租屋平台</h2>
+
+        <nav>
+          <a
+            href="/"
+            class="nav-item {{ 'active' if page == 'home' else '' }}"
+          >
+            租屋推薦
+          </a>
+
+          <a
+            href="/result"
+            class="nav-item {{ 'active' if page == 'result' else '' }}"
+          >
+            推薦結果
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-group-title">租屋市場分析</div>
+
+            <a
+              href="/analysis/distribution"
+              class="nav-sub {{ 'active' if page == 'analysis_distribution' else '' }}"
+            >
+              租屋市場族群分佈
+            </a>
+
+            <a
+              href="/analysis/compare"
+              class="nav-sub {{ 'active' if page == 'analysis_compare' else '' }}"
+            >
+              各租屋族群特徵比較
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+
+      <!-- ===== Main ===== -->
+      <main class="main">
+          <!-- ✅ 圖表畫布 -->
+          <div class="chart-container">
+            <canvas id="clusterChart"></canvas>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- ===== JS ===== -->
+    <script src="{{url_for('static',filename='analysis_distribution.js')}}"></script>
+  </body>
+</html>

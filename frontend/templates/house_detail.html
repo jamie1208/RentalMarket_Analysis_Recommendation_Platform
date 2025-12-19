@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <title>租屋詳細資訊</title>
+
+    <style>
+      body {
+        font-family: "Noto Sans TC", system-ui, sans-serif;
+        background: #f6f7f3;
+        margin: 0;
+        padding: 0;
+        color: #2f3a2f;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 32px 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      h1 {
+        margin-top: 0;
+        font-size: 28px;
+      }
+
+      .price {
+        font-size: 24px;
+        font-weight: bold;
+        color: #6b8f71;
+        margin: 12px 0 24px;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px 32px;
+      }
+
+      .info-item {
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .label {
+        color: #6b7280;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 13px;
+        background: #e8efe9;
+        color: #3f5f45;
+        margin-right: 8px;
+      }
+
+      .back {
+        margin-top: 32px;
+        display: inline-block;
+        text-decoration: none;
+        color: #6b8f71;
+        font-weight: 500;
+      }
+
+      .back:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- 標題 -->
+      <h1>{{ house.district }}</h1>
+      <div class="price">${{ "{:,}".format(house.total_rent) }} / 月</div>
+
+      <!-- 地址 -->
+      <p class="label">地址</p>
+      <p>{{ house.address }}</p>
+
+      <hr style="margin: 24px 0; border: none; border-top: 1px solid #e5e7eb" />
+
+      <!-- 主要資訊 -->
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="label">樓層：</span>
+          {{ house.floor }} / {{ house.total_floors }} 樓
+        </div>
+
+        <div class="info-item">
+          <span class="label">建物面積：</span>
+          {{ house.building_area_sqm }} 平方公尺
+        </div>
+
+        <div class="info-item">
+          <span class="label">房間數：</span>
+          {{ house.num_rooms }} 房
+        </div>
+
+        <div class="info-item">
+          <span class="label">客廳數：</span>
+          {{ house.num_living_rooms }} 廳
+        </div>
+
+        <div class="info-item">
+          <span class="label">衛浴數：</span>
+          {{ house.num_bathrooms }} 衛
+        </div>
+
+        <div class="info-item">
+          <span class="label">每平方公尺租金：</span>
+          ${{ house.rent_per_sqm }}
+        </div>
+      </div>
+
+      <hr style="margin: 24px 0; border: none; border-top: 1px solid #e5e7eb" />
+
+      <!-- 設備標籤 -->
+      <p class="label">設備與管理</p>
+      <div>
+        {% if house.has_furniture %}
+        <span class="tag">附家具</span>
+        {% endif %} {% if house.has_elevator %}
+        <span class="tag">電梯</span>
+        {% endif %} {% if house.has_manager %}
+        <span class="tag">管理員</span>
+        {% endif %}
+      </div>
+
+      <!-- 返回 -->
+      <a href="/result" class="back">← 返回租屋列表</a>
+    </div>
+  </body>
+</html>

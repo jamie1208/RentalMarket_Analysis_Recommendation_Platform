@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <title>租屋推薦結果</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{{url_for('static',filename='result.css')}}" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ===== Sidebar ===== -->
+      <aside class="sidebar">
+        <h2 class="logo">租屋平台</h2>
+
+        <nav>
+          <a href="/" class="nav-item {{ 'active' if page == 'home' else '' }}">
+            租屋推薦
+          </a>
+
+          <a
+            href="/result"
+            class="nav-item {{ 'active' if page == 'result' else '' }}"
+          >
+            推薦結果
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-group-title">租屋市場分析</div>
+
+            <a
+              href="/analysis/distribution"
+              class="nav-sub {{ 'active' if page == 'analysis_distribution' else '' }}"
+            >
+              租屋市場族群分佈
+            </a>
+
+            <a
+              href="/analysis/compare"
+              class="nav-sub {{ 'active' if page == 'analysis_compare' else '' }}"
+            >
+              各租屋族群特徵比較
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- ===== Main ===== -->
+      <main class="main">
+        <div class="content">
+          <!-- Title -->
+          <div class="title-row">
+            <h1>找尋你的租屋結果</h1>
+          </div>
+
+          <!-- Filters -->
+          <div class="filters">
+            <select id="rent">
+              <option value="">租金範圍</option>
+              <option value="0-10000">1 萬以下</option>
+              <option value="10000-20000">1-2 萬</option>
+              <option value="20000-50000">2–5 萬</option>
+              <option value="50000-999999">5 萬以上</option>
+            </select>
+
+            <select id="district">
+              <option value="">地區</option>
+            </select>
+
+            <button id="applyFilter" class="confirm-btn">確定</button>
+          </div>
+
+          <!-- 卡片容器 -->
+          <div id="card-grid" class="card-grid"></div>
+
+          <!-- 分頁 -->
+          <div id="pagination" class="pagination"></div>
+        </div>
+      </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='result.js') }}"></script>
+  </body>
+</html>
